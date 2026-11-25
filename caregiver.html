@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b36"><title>Caregiver Portal | PillPing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">✚</span><span>PillPing<small>CARE CIRCLE</small></span></a><div class="side-label">WORKSPACE</div><a class="nav-link" href="index.html"><span>▦</span> Patient view</a><a class="nav-link active" href="caregiver.html"><span>♡</span> Caregiver portal</a><a class="nav-link" href="index.html#history"><span>◷</span> Intake history</a><div class="sidebar-note"><div class="note-icon">♡</div><strong>Care from anywhere.</strong><p>Stay informed about daily medicine routines.</p></div><div class="profile-mini"><div class="avatar caregiver-avatar">CC</div><div><strong>Care Circle</strong><small>Caregiver view</small></div></div></aside>
+  <main class="main-content">
+    <header class="topbar"><div><div class="eyebrow">FAMILY CONNECTION</div><h1>Caregiver overview <span class="wave">♡</span></h1><p class="muted">A clear view of your loved one's medication routine.</p></div><div class="top-actions"><a class="outline-link" href="index.html">← Patient view</a><button class="icon-button" id="refreshCaregiver" title="Refresh dashboard">↻</button></div></header>
+    <section class="care-hero"><div><span class="hero-kicker">CARE CIRCLE DASHBOARD</span><h2>Every dose matters.<br><em>Every update brings peace of mind.</em></h2><p>Monitor sample patient profiles, dose confirmations and refill reminders.</p></div><div class="care-hero-icon">♡</div></section>
+    <section class="stats-grid caregiver-stats"><article class="stat-card"><div class="stat-icon mint">✓</div><div><span>Confirmed doses</span><strong id="careCompleted">0</strong><small>Today</small></div></article><article class="stat-card"><div class="stat-icon peach">◷</div><div><span>Pending doses</span><strong id="carePending">0</strong><small>Awaiting confirmation</small></div></article><article class="stat-card"><div class="stat-icon lavender">!</div><div><span>Needs attention</span><strong id="careAlerts">0</strong><small>Missed or low stock</small></div></article></section>
+    <section class="content-grid caregiver-grid"><div class="panel"><div class="section-heading"><div><div class="eyebrow">CONNECTED PROFILES</div><h2>Patient overview</h2></div><span class="live-pill"><i></i> DEMO LIVE</span></div><div id="patientCards" class="patient-cards"></div></div><aside class="right-column"><div class="panel"><div class="section-heading"><div><div class="eyebrow">ACTION REQUIRED</div><h2>Care alerts</h2></div></div><div id="alertList" class="alert-list"></div></div><div class="panel"><div class="section-heading"><div><div class="eyebrow">RECENT ACTIVITY</div><h2>Latest updates</h2></div></div><div id="activityList" class="activity-list"></div></div></aside></section>
+    <section class="panel"><div class="section-heading"><div><div class="eyebrow">MEDICATION TRACKER</div><h2>Today's dose status</h2></div><button class="text-button" id="careExport">↓ Export CSV</button></div><div class="table-wrap"><table><thead><tr><th>Patient</th><th>Medicine</th><th>Scheduled</th><th>Status</th><th>Stock</th></tr></thead><tbody id="doseTable"></tbody></table></div></section>
+    <footer>Made with care · PillPing CareCircle <span>Demo version · Not a medical device</span></footer>
+  </main>
+</div><div class="toast" id="toast" role="status" aria-live="polite"></div><script src="caregiver.js"></script>
+</body></html>

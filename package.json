@@ -1,0 +1,13 @@
+{
+  "name": "pillping-carecircle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Elderly-friendly medication reminders and caregiver dashboard mini-project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

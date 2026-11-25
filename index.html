@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b36">
+  <title>PillPing | Your daily care companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">✚</span><span>PillPing<small>CARE CIRCLE</small></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav-link active" href="index.html"><span>▦</span> My medicines</a>
+      <a class="nav-link" href="caregiver.html"><span>♡</span> Caregiver portal</a>
+      <a class="nav-link" href="#history"><span>◷</span> Intake history</a>
+      <div class="sidebar-note">
+        <div class="note-icon">☀</div>
+        <strong>A little care, every day.</strong>
+        <p>Small reminders can make a big difference.</p>
+      </div>
+      <div class="profile-mini"><div class="avatar">JD</div><div><strong id="sidePatientName">John Davis</strong><small>Patient account</small></div></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><div class="eyebrow">TUESDAY · YOUR HEALTH SPACE</div><h1>Good day, <span id="greetingName">John</span> <span class="wave">☀</span></h1><p class="muted">Let's keep your medicines on track today.</p></div>
+        <div class="top-actions">
+          <label class="patient-switch-label" for="patientSelect">Patient profile</label>
+          <select id="patientSelect" class="select-control" aria-label="Choose patient"></select>
+          <button class="icon-button" id="notifyBtn" title="Enable browser notifications" aria-label="Enable notifications">♧</button>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-copy"><span class="hero-kicker">YOUR DAILY HEALTH COMPANION</span><h2>One day at a time.<br><em>One dose at a time.</em></h2><p>Your medicines, reminders and progress — all in one simple place.</p><button class="hero-button" id="jumpToday">View today's schedule <span>→</span></button></div>
+        <div class="hero-art" aria-hidden="true"><div class="sun-disc"></div><div class="pill-illustration pill-one"></div><div class="pill-illustration pill-two"></div><div class="art-cross">✚</div><div class="art-caption">CARE THAT<br>STAYS CLOSE</div></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Today's summary">
+        <article class="stat-card"><div class="stat-icon mint">✓</div><div><span>Completed today</span><strong id="completedCount">0</strong><small>Keep it up!</small></div></article>
+        <article class="stat-card"><div class="stat-icon peach">◷</div><div><span>Coming up</span><strong id="pendingCount">0</strong><small>Scheduled doses</small></div></article>
+        <article class="stat-card"><div class="stat-icon lavender">↗</div><div><span>Weekly adherence</span><strong id="weeklyPercent">0%</strong><small>Last 7 days</small></div></article>
+      </section>
+
+      <section class="content-grid" id="today">
+        <div class="panel schedule-panel">
+          <div class="section-heading"><div><div class="eyebrow">YOUR PLAN</div><h2>Today's schedule</h2></div><button class="text-button" id="addMedicineBtn">＋ Add medicine</button></div>
+          <div class="schedule-tabs" role="group" aria-label="Filter schedule">
+            <button class="filter-tab active" data-filter="all">All doses</button><button class="filter-tab" data-filter="Morning">Morning</button><button class="filter-tab" data-filter="Afternoon">Afternoon</button><button class="filter-tab" data-filter="Night">Night</button>
+          </div>
+          <div id="medicineList" class="medicine-list"></div>
+          <div class="empty-state hidden" id="emptyState"><span>☘</span><strong>No medicines in this section</strong><p>Add a medicine or choose another time.</p></div>
+        </div>
+
+        <aside class="right-column">
+          <div class="panel progress-panel"><div class="section-heading"><div><div class="eyebrow">YOUR CONSISTENCY</div><h2>This week</h2></div><span class="tiny-badge">7 DAYS</span></div><div class="progress-ring-wrap"><div class="progress-ring" id="progressRing"><div><strong id="ringPercent">0%</strong><small>adherence</small></div></div></div><div class="progress-legend"><span><i class="dot done"></i> Taken</span><span><i class="dot missed"></i> Missed</span><span><i class="dot upcoming"></i> Pending</span></div><div class="week-bars" id="weekBars"></div></div>
+          <div class="panel care-panel"><div class="care-icon">♡</div><div><strong>Care circle connected</strong><p>Your caregiver can view confirmed doses and pending reminders.</p><a href="caregiver.html">Open caregiver portal →</a></div></div>
+          <div class="sos-card"><div><span class="sos-label">NEED HELP?</span><h3>We're here for you.</h3><p>Contact your trusted person quickly.</p></div><button id="sosBtn" class="sos-button">SOS <span>↗</span></button></div>
+        </aside>
+      </section>
+
+      <section class="panel history-panel" id="history"><div class="section-heading"><div><div class="eyebrow">YOUR RECORD</div><h2>Recent medicine history</h2></div><span class="tiny-badge">14 DAYS</span></div><div id="historyList" class="history-list"></div></section>
+      <footer>Made with care · PillPing CareCircle <span>Demo version · Not a medical device</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="medicineModal">
+    <form class="modal-card" id="medicineForm">
+      <button type="button" class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <div class="eyebrow">MEDICINE SETUP</div><h2 id="modalTitle">Add a medicine</h2><p class="muted">Enter the instructions exactly as provided by the patient's healthcare professional.</p>
+      <input type="hidden" id="medicineId">
+      <label>Medicine name<input id="medName" required placeholder="e.g. Vitamin tablet"></label>
+      <div class="form-row"><label>Dosage<input id="medDose" required placeholder="e.g. 1 tablet"></label><label>Time<select id="medTime"><option>Morning</option><option>Afternoon</option><option>Night</option></select></label></div>
+      <label>Reminder time<input id="medClock" type="time" required value="08:00"></label>
+      <label>Food instructions<select id="medFood"><option>After food</option><option>Before food</option><option>With water</option><option>As prescribed</option></select></label>
+      <div class="form-row"><label>Remaining doses<input id="medStock" type="number" min="0" value="14"></label><label>Bottle photo<input id="medPhoto" type="file" accept="image/*"></label></div>
+      <div id="photoPreview" class="photo-preview"></div>
+      <div class="modal-actions"><button type="button" class="secondary-button" id="cancelModal">Cancel</button><button class="primary-button" type="submit">Save medicine</button></div>
+    </form>
+  </div>
+
+  <div class="reminder-overlay hidden" id="reminderOverlay" role="dialog" aria-modal="true" aria-labelledby="reminderTitle">
+    <div class="reminder-card"><div class="reminder-symbol">✚</div><div class="eyebrow">MEDICINE REMINDER</div><h2 id="reminderTitle">It's time for your medicine</h2><div class="reminder-medicine" id="reminderMedicine"></div><p id="reminderInstruction"></p><div class="reminder-photo" id="reminderPhoto"></div><button class="speak-dose" id="speakReminder">🔊 Read instructions aloud</button><button class="confirm-dose" id="confirmDose">✓ I Took My Medicine</button><button class="snooze-dose" id="snoozeDose">◷ Snooze 15 Mins</button><button class="already-dose" id="alreadyDose">I already took it</button></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
